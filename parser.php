@@ -3,6 +3,13 @@ class Script{
   const PARSE_STRING = 0;
   const PARSE_FILE = 1;
   const PARSE_URL = 2;
+  
+  private $data;
+
+  public function __construct(){
+      $this->data = new ScriptData();
+  }
+
   public function parse(string $data, int $mode = 0){
      $context = "";
      switch($mode){
@@ -22,5 +29,12 @@ class Script{
        default:
          throw new Exception("Unknown mode");
      }
+
+     $this->begin($source);
+  }
+
+  private function begin($source){
+     $token = new Tokenizer(new StringReader($source));
+        
   }
 }
