@@ -19,7 +19,7 @@ class Script{
        case self::PARSE_URL:
          $context = file_get_contents($data);
        break;
-       deafult:
+       default:
          throw new Exception("Unknown mode");
      }
   }
